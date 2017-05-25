@@ -1,7 +1,9 @@
 package com.example.vegard.tictactoe;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Vegard on 10.05.2017.
@@ -13,6 +15,15 @@ public class TicTacToe {
     private Player player1;
     private Player player2;
     private Player activePlayer;
+    private Map<String, Integer> scores;
+
+    public TicTacToe() {
+        scores = new HashMap<>();
+    }
+
+    public Map<String, Integer> getScores() {
+        return scores;
+    }
 
     private List<String> board;
 
@@ -90,5 +101,14 @@ public class TicTacToe {
 
     public List<String> getBoard() {
         return board;
+    }
+
+    public void addWin(Player player){
+        if (scores.containsKey(player.getPlayername())){
+            int i = scores.get(player.getPlayername());
+            scores.put(player.getPlayername(), i+1);
+        } else {
+            scores.put(player.getPlayername(), 1);
+        }
     }
 }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static com.example.vegard.tictactoe.R.id.cell0;
 import static com.example.vegard.tictactoe.R.id.cell1;
 
 public class BoardActivity extends AppCompatActivity implements View.OnClickListener{
@@ -57,7 +58,9 @@ public class BoardActivity extends AppCompatActivity implements View.OnClickList
         switch (btn.getId()){
             case R.id.restart:
                 ticTacToe.reset();
+                setBoardState(true);
                 updateBoard(ticTacToe.getBoard());
+                ((TextView)findViewById(R.id.active)).setText(ticTacToe.getActivePlayer().getPlayername());
                 break;
             case R.id.newGame:
                 startActivity(new Intent(BoardActivity.this, StartScreen.class));
@@ -95,15 +98,31 @@ public class BoardActivity extends AppCompatActivity implements View.OnClickList
             }
             ticTacToe.markCell(index);
             updateBoard(ticTacToe.getBoard());
+        } else {
+            return;
         }
 
         if (ticTacToe.isWinner()) {
             // score and end game
+            ticTacToe.addWin(ticTacToe.getActivePlayer());
+            setBoardState(false);
             ((TextView)findViewById(R.id.active)).setText(ticTacToe.getActivePlayer().getPlayername() + " Wins!");
         } else {
             ticTacToe.switchPlayer();
             ((TextView)findViewById(R.id.active)).setText(ticTacToe.getActivePlayer().getPlayername());
         }
+    }
+
+    private void setBoardState(boolean state) {
+        findViewById(R.id.cell0).setEnabled(state);
+        findViewById(R.id.cell1).setEnabled(state);
+        findViewById(R.id.cell2).setEnabled(state);
+        findViewById(R.id.cell3).setEnabled(state);
+        findViewById(R.id.cell4).setEnabled(state);
+        findViewById(R.id.cell5).setEnabled(state);
+        findViewById(R.id.cell6).setEnabled(state);
+        findViewById(R.id.cell7).setEnabled(state);
+        findViewById(R.id.cell8).setEnabled(state);
     }
 
     private void updateBoard(List<String> board) {

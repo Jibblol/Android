@@ -7,6 +7,7 @@
     tools:context="com.example.vegard.tictactoe.Scoreboard">
 
     <ListView
+        android:id="@+id/scores"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:layout_constraintTop_creator="1"
