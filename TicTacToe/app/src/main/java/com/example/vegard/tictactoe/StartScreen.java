@@ -25,8 +25,7 @@ public class StartScreen extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         EditText p1 = (EditText) findViewById(R.id.player1);
         EditText p2 = (EditText) findViewById(R.id.player2);
-        ticTacToe.setPlayername1(p1.getText().toString());
-        ticTacToe.setPlayername2(p2.getText().toString());
+        ticTacToe.newGame(p1.getText().toString(), p2.getText().toString());
         startActivity(new Intent(StartScreen.this, BoardActivity.class));
     }
 }
