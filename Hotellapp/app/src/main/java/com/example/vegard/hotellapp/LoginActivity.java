@@ -31,12 +31,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         hotell.setUsername(user.getText().toString());
         hotell.setPassword(pass.getText().toString());
 
-        try {
-            new GetBookingsTask().execute(new URL("http://hotellapi.herokuapp.com/bookings"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 }

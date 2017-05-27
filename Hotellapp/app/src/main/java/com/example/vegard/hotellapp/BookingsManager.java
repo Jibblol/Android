@@ -21,4 +21,8 @@ public class BookingsManager {
     public void addBooking(String hotelName, String roomType) {
         bookingList.add(new Booking(hotelName, roomType));
     }
+
+    public ArrayList<Booking> getBookings() {
+        return bookingList;
+    }
 }
