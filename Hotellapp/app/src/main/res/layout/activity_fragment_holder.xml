@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <fragment android:name="com.example.vegard.hotellapp.layout.UserInfoFragment"
+        android:id="@+id/userInfo"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        tools:layout="@layout/fragment_user_info" />
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_height="488dp"
+        android:layout_margin="10dp"
+        android:layout_weight="16.83">
     </FrameLayout>
 
 

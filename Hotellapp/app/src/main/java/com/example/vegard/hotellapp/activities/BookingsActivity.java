@@ -2,7 +2,7 @@ package com.example.vegard.hotellapp.activities;
 
 import android.app.Fragment;
 
-import layout.BookingsFragment;
+import com.example.vegard.hotellapp.layout.BookingsFragment;
 
 public class BookingsActivity extends FragmentHolderActivity {
     @Override

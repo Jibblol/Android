@@ -2,7 +2,7 @@ package com.example.vegard.hotellapp.activities;
 
 import android.app.Fragment;
 
-import layout.RoomServiceFragment;
+import com.example.vegard.hotellapp.layout.RoomServiceFragment;
 
 public class RoomServiceActivity extends FragmentHolderActivity {
 

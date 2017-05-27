@@ -6,7 +6,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.vegard.hotellapp.HotellApp;
@@ -20,11 +22,14 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RoomServiceFragment extends Fragment {
+public class RoomServiceFragment extends Fragment implements View.OnClickListener {
 
     private HotellApp hotell;
 
+    private int sum = 0;
+
     ArrayAdapter<String> listAdapter;
+    ListView menuList;
 
     public RoomServiceFragment() {
         // Required empty public constructor
@@ -50,8 +55,18 @@ public class RoomServiceFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_room, container, false);
-        ((ListView)view.findViewById(R.id.menuList)).setAdapter(listAdapter);
+        menuList = (ListView)view.findViewById(R.id.menuList);
+        menuList.setAdapter(listAdapter);
+
+        view.findViewById(R.id.orderBtn).setOnClickListener(this);
+
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        for (int i = 0; i < menuList.getChildCount(); i++) {
+            menuList.setItemChecked(i, false);
+        }
+    }
 }
