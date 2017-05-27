@@ -11,7 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private HotellApp hotell;
-    private Button roomServiceBtn;
+    private Button roomServiceBtn, lateArrivalBtn, mapBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         roomServiceBtn = (Button) findViewById(R.id.roomServiceBtn);
         roomServiceBtn.setOnClickListener(this);
+
+        lateArrivalBtn = (Button) findViewById(R.id.lateArrivalBtn);
+        lateArrivalBtn.setOnClickListener(this);
+
+        mapBtn = (Button) findViewById(R.id.mapBtn);
+        mapBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(MainActivity.this, RoomServiceActivity.class));
+
+        if (v == roomServiceBtn) {
+            startActivity(new Intent(MainActivity.this, RoomServiceActivity.class));
+        } else if (v == lateArrivalBtn){
+            startActivity(new Intent(MainActivity.this, LateArrivalActivity.class));
+        } else if (v == mapBtn){
+            startActivity(new Intent(MainActivity.this, MapActivity.class));
+        }
     }
 }
