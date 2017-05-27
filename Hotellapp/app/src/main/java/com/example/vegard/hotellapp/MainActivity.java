@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private HotellApp hotell;
-    private Button roomServiceBtn, lateArrivalBtn, mapBtn;
+    private Button roomServiceBtn, lateArrivalBtn, mapBtn, myBookingsBtn;
 
 
     @Override
@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mapBtn = (Button) findViewById(R.id.mapBtn);
         mapBtn.setOnClickListener(this);
+
+        myBookingsBtn = (Button) findViewById(R.id.myBookingsBtn);
+        myBookingsBtn.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, LateArrivalActivity.class));
         } else if (v == mapBtn){
             startActivity(new Intent(MainActivity.this, MapActivity.class));
+        } else if (v == myBookingsBtn){
+            startActivity(new Intent(MainActivity.this, BookingsActivity.class));
         }
     }
 }
