@@ -1,8 +1,5 @@
-package com.example.vegard.hotellapp;
+package com.example.vegard.hotellapp.booking;
 
-import android.os.AsyncTask;
-
-import java.net.URI;
 import java.util.ArrayList;
 
 public class BookingsManager {

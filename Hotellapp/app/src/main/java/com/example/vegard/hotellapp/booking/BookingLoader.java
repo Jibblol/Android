@@ -1,11 +1,7 @@
-package com.example.vegard.hotellapp;
+package com.example.vegard.hotellapp.booking;
 
+import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.support.v4.content.AsyncTaskLoader;
-
-import com.example.vegard.hotellapp.Booking;
-import com.example.vegard.hotellapp.BookingsManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Kilde: http://www.concretepage.com/android/android-asynctaskloader-example-with-listview-and-baseadapter
-class BookingLoader extends AsyncTaskLoader<List<Booking>> {
+public class BookingLoader extends AsyncTaskLoader<List<Booking>> {
     private static final String bookingApi = "http://hotellapi.herokuapp.com/bookings";
 
     public BookingLoader(Context context) {

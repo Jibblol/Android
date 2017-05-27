@@ -1,4 +1,4 @@
-package com.example.vegard.hotellapp;
+package com.example.vegard.hotellapp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.example.vegard.hotellapp.HotellApp;
+import com.example.vegard.hotellapp.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -19,19 +19,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RoomServiceActivity" />
-        <activity android:name=".BookingsActivity" />
-        <activity android:name=".LateArrivalActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".FragmentHolderActivity"></activity>
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.RoomServiceActivity" />
+        <activity android:name=".activities.BookingsActivity" />
+        <activity android:name=".activities.LateArrivalActivity" />
+        <activity android:name=".activities.MapActivity" />
+        <activity android:name=".activities.FragmentHolderActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
