@@ -1,4 +1,4 @@
-package com.example.vegard.hotellapp;
+package com.example.vegard.hotellapp.booking;
 
 /**
  * Created by kongl on 27/05/2017.

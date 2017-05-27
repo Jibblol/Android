@@ -1,24 +1,36 @@
-package com.example.vegard.hotellapp;
+package com.example.vegard.hotellapp.layout;
 
 import android.app.DatePickerDialog;
+import android.app.Fragment;
 import android.icu.util.Calendar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-public class LateArrivalActivity extends AppCompatActivity {
+import com.example.vegard.hotellapp.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class LateArrivalFragment extends Fragment {
     EditText date;
     DatePickerDialog datePickerDialog;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_late_arrival);
+    public LateArrivalFragment() {
+        // Required empty public constructor
+    }
 
-        date = (EditText) findViewById(R.id.date);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_late_arrival, container, false);
+
+        date = (EditText)view.findViewById(R.id.date);
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +40,7 @@ public class LateArrivalActivity extends AppCompatActivity {
                 int mMonth = c.get(Calendar.MONTH);
                 int mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                datePickerDialog = new DatePickerDialog(LateArrivalActivity.this, new DatePickerDialog.OnDateSetListener() {
+                datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
 
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -38,5 +50,7 @@ public class LateArrivalActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
+        return view;
     }
 }
