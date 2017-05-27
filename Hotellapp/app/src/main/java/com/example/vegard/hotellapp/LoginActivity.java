@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button loginBtn;
@@ -27,6 +30,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         EditText pass = (EditText) findViewById(R.id.password);
         hotell.setUsername(user.getText().toString());
         hotell.setPassword(pass.getText().toString());
+
+        try {
+            new GetBookingsTask().execute(new URL("http://hotellapi.herokuapp.com/bookings"));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 }
