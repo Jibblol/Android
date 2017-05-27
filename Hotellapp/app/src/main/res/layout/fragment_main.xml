@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.MainFragment">
+
+    <Button
+        android:id="@+id/roomServiceBtn"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="180dp"
+        android:text="Room Service"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/myBookingsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="456dp"
+        android:text="My bookings"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/mapBtn"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="364dp"
+        android:text="Map"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/lateArrivalBtn"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="272dp"
+        android:text="Late Arrival"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+</FrameLayout>
