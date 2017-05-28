@@ -55,12 +55,11 @@ public class BookingLoader extends AsyncTaskLoader<List<Booking>> {
 
             for (int j = 0; j < bookingsJson.length(); j++) {
                 JSONObject booking = bookingsJson.getJSONObject(j);
-                JSONObject hotel = booking.getJSONObject("hotel");
 
                 Date checkIn = dateFormat.parse(booking.getString("startDate"));
                 Date checkOut = dateFormat.parse(booking.getString("endDate"));
 
-                Booking bookingObject = new Booking(hotel.getString("name"), booking.getString("room"), checkIn, checkOut );
+                Booking bookingObject = new Booking(booking.getString("hotel"), booking.getString("room"), checkIn, checkOut );
                 bookings.add(bookingObject);
             }
         } catch (IOException | JSONException e) {
