@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.vegard.hotellapp.R;
+import com.example.vegard.hotellapp.layout.UserInfoFragment;
 
 public abstract class FragmentHolderActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();

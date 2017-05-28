@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.vegard.hotellapp.R;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BookingListAdapter extends BaseAdapter {
     private Context context;
@@ -47,13 +50,19 @@ public class BookingListAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         if (view == null) {
-            view = inflater.inflate(android.R.layout.simple_list_item_2, null);
+            view = inflater.inflate(R.layout.booking_listitem, null);
         }
 
-        TextView hotelName = (TextView) view.findViewById(android.R.id.text1);
-        TextView roomType = (TextView) view.findViewById(android.R.id.text2);
+        TextView hotelName = (TextView) view.findViewById(R.id.hotelName);
+        TextView roomType = (TextView) view.findViewById(R.id.roomType);
+        TextView nights = (TextView) view.findViewById(R.id.nights);
+
         hotelName.setText(bookings.get(position).getHotelName());
         roomType.setText("Room type: " + bookings.get(position).getRoomType());
+
+        long stayLength = bookings.get(position).getCheckOutDate().getTime() - bookings.get(position).getCheckInDate().getTime();
+
+        nights.setText(TimeUnit.DAYS.convert(stayLength, TimeUnit.MILLISECONDS) + " nights");
 
         return view;
     }

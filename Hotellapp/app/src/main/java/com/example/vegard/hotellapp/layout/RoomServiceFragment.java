@@ -66,6 +66,8 @@ public class RoomServiceFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         Toast.makeText(getContext(), "Submitting order..", Toast.LENGTH_LONG).show();
+        int points = hotell.getBonusPoints();
+        hotell.setBonusPoints(points - sum);
 
         for (int i = 0; i < menuList.getChildCount(); i++) {
             menuList.setItemChecked(i, false);

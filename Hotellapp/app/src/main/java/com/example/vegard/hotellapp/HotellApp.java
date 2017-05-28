@@ -17,6 +17,7 @@ public class HotellApp {
     private String username;
     private String password;
     private List<RoomServiceMenuItem> menuItems;
+    private int bonusPoints = 2000;
 
     public HotellApp(){
         menuItems = new ArrayList<>();
@@ -52,6 +53,13 @@ public class HotellApp {
         this.password = password;
     }
 
+    public int getBonusPoints() {
+        return bonusPoints;
+    }
+
+    public void setBonusPoints(int bonusPoints) {
+        this.bonusPoints = bonusPoints;
+    }
 }
 
 

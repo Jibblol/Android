@@ -1,5 +1,6 @@
 package com.example.vegard.hotellapp.layout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ public class UserInfoFragment extends Fragment {
 
     private HotellApp hotell;
 
+    TextView bonusPoints;
+
     public UserInfoFragment() {
         hotell = HotellApp.getInstance();
     }
@@ -24,7 +27,14 @@ public class UserInfoFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_info, container, false);
         ((TextView)view.findViewById(R.id.firstname)).setText(hotell.getUsername());
+
+        bonusPoints = (TextView)view.findViewById(R.id.bonusPoints);
+        bonusPoints.setText(Integer.toString(hotell.getBonusPoints()));
         return view;
+    }
+
+    public void update() {
+        ((TextView)((Activity)getContext()).findViewById(R.id.bonusPoints)).setText(Integer.toString(hotell.getBonusPoints()));
     }
 
 }
