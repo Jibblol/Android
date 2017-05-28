@@ -37,9 +37,11 @@ public class BookingLoader extends AsyncTaskLoader<List<Booking>> {
 
         HttpURLConnection conn = null;
         try {
+            // åpne ekstern http-forbindelse til API
             URL url = new URL(bookingApi);
             conn = (HttpURLConnection)url.openConnection();
 
+            // les respons til string
             InputStream in = new BufferedInputStream(conn.getInputStream());
             BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
             StringBuilder responseStrBuilder = new StringBuilder();
@@ -47,6 +49,8 @@ public class BookingLoader extends AsyncTaskLoader<List<Booking>> {
             String inputStr;
             while ((inputStr = streamReader.readLine()) != null)
                 responseStrBuilder.append(inputStr);
+
+            // parse JSON og opprett Booking-POJOs
             JSONArray bookingsJson = new JSONArray(responseStrBuilder.toString());
 
             for (int j = 0; j < bookingsJson.length(); j++) {
@@ -64,6 +68,7 @@ public class BookingLoader extends AsyncTaskLoader<List<Booking>> {
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {
+            // lukk forbindelse uavhengig av eventuelle feil
             conn.disconnect();
         }
 
