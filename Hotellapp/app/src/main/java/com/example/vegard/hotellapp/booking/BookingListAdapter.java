@@ -27,13 +27,13 @@ public class BookingListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return bookings.get(i);
+    public Object getItem(int position) {
+        return bookings.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     public void setBookings(List<Booking> bookings) {

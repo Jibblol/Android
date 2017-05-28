@@ -7,29 +7,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vegard.hotellapp.HotellApp;
 import com.example.vegard.hotellapp.R;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import com.example.vegard.hotellapp.roomservice.RoomServiceMenuAdapter;
+import com.example.vegard.hotellapp.roomservice.RoomServiceMenuItem;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RoomServiceFragment extends Fragment implements View.OnClickListener {
+public class RoomServiceFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     private HotellApp hotell;
 
     private int sum = 0;
 
-    ArrayAdapter<String> listAdapter;
+    RoomServiceMenuAdapter adapter;
     ListView menuList;
+    TextView totalPrice;
 
     public RoomServiceFragment() {
         // Required empty public constructor
@@ -40,14 +38,7 @@ public class RoomServiceFragment extends Fragment implements View.OnClickListene
         super.onCreate(savedInstanceState);
         hotell = HotellApp.getInstance();
 
-        List<Map.Entry<String, Integer>> menuItemsAsList = new LinkedList<>(hotell.getMenuItems().entrySet());
-
-        List<String> menuItems = new ArrayList<>();
-        for(Map.Entry<String, Integer> item : menuItemsAsList ){
-            menuItems.add(item.getKey() + " - " + item.getValue());
-        }
-
-        listAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, menuItems);
+        adapter = new RoomServiceMenuAdapter(getContext(), hotell.getMenuItems());
     }
 
     @Override
@@ -56,17 +47,41 @@ public class RoomServiceFragment extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_room, container, false);
         menuList = (ListView)view.findViewById(R.id.menuList);
-        menuList.setAdapter(listAdapter);
+        menuList.setAdapter(adapter);
+        menuList.setChoiceMode(menuList.CHOICE_MODE_MULTIPLE);
+        menuList.setOnItemClickListener(this);
+
+        totalPrice = (TextView)view.findViewById(R.id.itemsPrice);
+        updateTotal();
 
         view.findViewById(R.id.orderBtn).setOnClickListener(this);
 
         return view;
     }
 
+    private void updateTotal() {
+        totalPrice.setText(Integer.toString(sum));
+    }
+
     @Override
     public void onClick(View v) {
+        Toast.makeText(getContext(), "Submitting order..", Toast.LENGTH_LONG).show();
+
         for (int i = 0; i < menuList.getChildCount(); i++) {
             menuList.setItemChecked(i, false);
         }
+        sum = 0;
+        updateTotal();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (menuList.isItemChecked(position)) {
+            sum += ((RoomServiceMenuItem)menuList.getItemAtPosition(position)).getPrice();
+        } else {
+            sum -= ((RoomServiceMenuItem)menuList.getItemAtPosition(position)).getPrice();
+        }
+
+        updateTotal();
     }
 }
