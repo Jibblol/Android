@@ -1,0 +1,94 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.vegard.hotellapp.layout.RoomServiceFragment"
+    android:layout_margin="10dp"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="5dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="61dp"
+        android:layout_height="0dp"
+        android:text="Sum:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginStart="10dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/itemsPrice"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemsPrice" />
+
+    <ListView
+        android:id="@+id/menuList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:choiceMode="multipleChoice"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="28dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/itemsPrice"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/itemsPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(price goes here)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="189dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <Button
+        android:id="@+id/orderBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place order"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order room service using your earned bonus points"
+        android:layout_marginStart="35dp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="28dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/menuList"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+</android.support.constraint.ConstraintLayout>
