@@ -60,7 +60,7 @@ public class RoomServiceFragment extends Fragment implements View.OnClickListene
     }
 
     private void updateTotal() {
-        totalPrice.setText(Integer.toString(sum));
+        totalPrice.setText(Integer.toString(sum) + " points");
     }
 
     @Override

@@ -7,7 +7,7 @@
 
     <Button
         android:id="@+id/roomServiceBtn"
-        android:layout_width="match_parent"
+        android:layout_width="395dp"
         android:layout_height="92dp"
         android:text="Room Service"
         tools:layout_constraintTop_creator="1"
@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/myBookingsBtn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="92dp"
         android:text="My bookings"
         tools:layout_constraintTop_creator="1"
@@ -35,21 +35,20 @@
 
     <Button
         android:id="@+id/mapBtn"
-        android:layout_width="match_parent"
+        android:layout_width="395dp"
         android:layout_height="92dp"
-        android:text="Map"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
+        android:text="How to find us"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/lateArrivalBtn"
         app:layout_constraintRight_toRightOf="@+id/lateArrivalBtn"
         app:layout_constraintTop_toBottomOf="@+id/lateArrivalBtn"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/lateArrivalBtn"
-        android:layout_marginTop="-1dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/lateArrivalBtn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="92dp"
         android:text="Late Arrival"
         tools:layout_constraintTop_creator="1"

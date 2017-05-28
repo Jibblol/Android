@@ -10,13 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.vegard.hotellapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LateArrivalFragment extends Fragment {
+public class LateArrivalFragment extends Fragment implements View.OnClickListener{
     EditText date;
     DatePickerDialog datePickerDialog;
 
@@ -29,6 +30,8 @@ public class LateArrivalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_late_arrival, container, false);
+
+        view.findViewById(R.id.notifyBtn).setOnClickListener(this);
 
         date = (EditText)view.findViewById(R.id.date);
 
@@ -52,5 +55,10 @@ public class LateArrivalFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getContext(), "Front desk notified. Thank you!", Toast.LENGTH_LONG).show();
     }
 }
