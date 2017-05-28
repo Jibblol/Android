@@ -21,14 +21,14 @@ public class HotellApp {
 
     public HotellApp(){
         menuItems = new ArrayList<>();
+        menuItems.add(new RoomServiceMenuItem("Burger", 180));
+        menuItems.add(new RoomServiceMenuItem("Pizza", 200));
+        menuItems.add(new RoomServiceMenuItem("Turkey BLT", 150));
+        menuItems.add(new RoomServiceMenuItem("Soda", 50));
+        menuItems.add(new RoomServiceMenuItem("Beer", 100));
     }
 
     public List<RoomServiceMenuItem> getMenuItems(){
-        menuItems.add(new RoomServiceMenuItem("Burger", 200));
-        menuItems.add(new RoomServiceMenuItem("Pizzer", 150));
-        menuItems.add(new RoomServiceMenuItem("Rump", 100));
-        menuItems.add(new RoomServiceMenuItem("Stick of death", 1));
-        menuItems.add(new RoomServiceMenuItem("Die", 200));
         return menuItems;
     }
 

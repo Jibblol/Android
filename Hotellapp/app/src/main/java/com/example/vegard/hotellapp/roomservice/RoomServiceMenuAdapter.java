@@ -50,7 +50,7 @@ public class RoomServiceMenuAdapter extends BaseAdapter {
 
         TextView text = (TextView) view.findViewById(android.R.id.text1);
 
-        text.setText(menuItems.get(position).getName() + " - " + menuItems.get(position).getPrice());
+        text.setText(menuItems.get(position).getName() + " - " + menuItems.get(position).getPrice() + " points");
 
         return view;
     }
